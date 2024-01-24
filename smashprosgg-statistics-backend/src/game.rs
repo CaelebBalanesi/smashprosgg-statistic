@@ -1,7 +1,7 @@
 #[derive(Debug)]
 pub struct Game {
     pub id: String,
-    pub winnerId: u32,
-    pub stageId: u32,
+    pub winner_id: u32,
+    pub stage_id: u32,
     pub date: String,
 }

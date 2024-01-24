@@ -1,9 +1,6 @@
 {
-    "cSpell.words": [
-        "reqwest"
-    ],
     "rust-analyzer.linkedProjects": [
-        "./Cargo.toml",
-        "./Cargo.toml"
+        "./smashprosgg-statistics-backend/Cargo.toml",
+        "./smashprosgg-statistics-backend/Cargo.toml"
     ]
 }
