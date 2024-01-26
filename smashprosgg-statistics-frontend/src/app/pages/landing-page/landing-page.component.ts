@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon'
 import { BackendService } from '../../services/backend.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-landing-page',
@@ -15,7 +16,6 @@ import { BackendService } from '../../services/backend.service';
 export class LandingPageComponent {
 
   constructor (
-    private backend: BackendService,
   ) {
 
   }
