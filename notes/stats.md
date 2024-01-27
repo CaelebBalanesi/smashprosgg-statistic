@@ -7,7 +7,7 @@ I think that all of the data stored on their servers is just stored in sets. A s
 - date & time
 
 # derived data
-We can also take almost any of these
+We can also take almost any of these and track them over time.
 ## matchup winrate
 (Games won as character X vs character Y) / (Games as character X vs Character Y)
 ## stage winrate
