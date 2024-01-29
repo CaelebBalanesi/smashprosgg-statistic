@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { environment } from '../../enviroment/enviroment';
 
 @Injectable({
   providedIn: 'root'
@@ -15,8 +16,8 @@ export class BackendService {
   username!: string;
 
   get_set_winrate(username: string) {
-    console.log("http://localhost:2222/game_winrate/user?username=" + username);
-    return this.http.get<any>("http://localhost:2222/game_winrate/user?username=" + username);
+    console.log(environment.backend_url + "/game_winrate/user?username=" + username);
+    return this.http.get<any>(environment.backend_url + "/game_winrate/user?username=" + username);
   }
 
   get_game_winrate() {

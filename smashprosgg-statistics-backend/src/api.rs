@@ -13,7 +13,7 @@ fn create_cors_headers() -> HeaderMap {
 }
 
 #[tokio::main]
-pub async fn start_api() {
+pub async fn start_api(ip: String) {
     // build our application with a single route
     let app = Router::new()
         .route("/", get(|| async { "Works" }))
@@ -22,7 +22,7 @@ pub async fn start_api() {
         .route("/game_winrate", get(get_game_winrate))
         .route("/game_winrate/user", get(get_game_winrate_from_username));
 
-    let listener = tokio::net::TcpListener::bind("0.0.0.0:2222").await.unwrap();
+    let listener = tokio::net::TcpListener::bind(ip).await.unwrap();
     axum::serve(listener, app).await.unwrap();
 }
 
