@@ -14,4 +14,12 @@ Using ngx-charts to visualize different statistics.
 - [Sqlite](https://www.sqlite.org/index.html) - A lightweight database.
 - [Rusqlite](https://github.com/rusqlite/rusqlite) - A way to bind Rust to the database.
 
-## 
+## Setup
+1. Clone this repo
+2. `cd smashprosgg-statistics-backend`
+3. edit `smashprosgg-statistics-backend/Config.toml`
+4. `cargo run`
+5. `cd ../smashprosgg-statistics-frontend`
+6. edit `./src/enviroment/enviroment.ts`
+7. `ng serve`
+8. open `localhost:4200`
