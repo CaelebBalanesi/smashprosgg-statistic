@@ -2,7 +2,6 @@ use std::error::Error;
 use reqwest::get;
 use crate::{game, set};
 
-
 pub async fn get_all_sets(user_id: usize) -> Result<Vec<set::Set>, Box<dyn Error>> {
     let mut api = 1;
     println!("API CALL {api}");
@@ -39,6 +38,10 @@ pub async fn get_all_sets(user_id: usize) -> Result<Vec<set::Set>, Box<dyn Error
                 winner_id: game["winnerId"].as_u32().unwrap(),
                 stage_id: game["stagePick"]["stageId"].as_u32().unwrap(),
                 date: game["createdAt"].to_string(),
+                character_picks: game::CharacterPicks{
+                    user1: ( game["characterPicks"][0]["userId"].as_u32().unwrap(), game["characterPicks"][0]["characterId"].as_u32().unwrap() ),
+                    user2: ( game["characterPicks"][1]["userId"].as_u32().unwrap(), game["characterPicks"][1]["characterId"].as_u32().unwrap() )
+                }
             };
             games.push(game_data);
         }
@@ -88,6 +91,10 @@ pub async fn get_all_sets(user_id: usize) -> Result<Vec<set::Set>, Box<dyn Error
                     winner_id: k["winnerId"].as_u32().unwrap(),
                     stage_id: k["stagePick"]["stageId"].as_u32().unwrap(),
                     date: k["createdAt"].to_string(),
+                    character_picks: game::CharacterPicks{
+                        user1: ( k["characterPicks"][0]["userId"].as_u32().unwrap(), k["characterPicks"][0]["characterId"].as_u32().unwrap() ),
+                        user2: ( k["characterPicks"][1]["userId"].as_u32().unwrap(), k["characterPicks"][1]["characterId"].as_u32().unwrap() )
+                    }
                 };
                 games.push(game);
             }

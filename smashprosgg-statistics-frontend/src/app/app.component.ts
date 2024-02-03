@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
+import { NgxEchartsModule } from 'ngx-echarts';
 
 @Component({
   selector: 'app-root',
@@ -9,7 +10,8 @@ import { HttpClientModule } from '@angular/common/http';
   imports: [
     CommonModule,
     RouterOutlet,
-    HttpClientModule
+    HttpClientModule,
+    NgxEchartsModule,
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
