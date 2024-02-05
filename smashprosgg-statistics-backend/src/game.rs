@@ -1,10 +1,12 @@
-#[derive(Debug)]
+use serde_derive::{Deserialize, Serialize};
+
+#[derive(Debug, Serialize, Deserialize)]
 pub struct CharacterPicks {
     pub user1: (u32, u32),
     pub user2: (u32, u32),
 }
 
-#[derive(Debug)]
+#[derive(Debug, Serialize, Deserialize)]
 pub struct Game {
     pub id: String,
     pub winner_id: u32,

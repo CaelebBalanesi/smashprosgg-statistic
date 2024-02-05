@@ -1,9 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Character } from '../../pages/stats-page/stats-page.component';
 
-export interface Character {
-  name: string,
-  img: string,
-}
 
 @Component({
   selector: 'app-character-selecter',
@@ -13,18 +10,10 @@ export interface Character {
   styleUrl: './character-selecter.component.scss'
 })
 export class CharacterSelecterComponent {
+  @Input("characters") characters!: Character[];
+  @Output("selectedCharacter") selectedCharacter = new EventEmitter<string>();
 
-  characters: Character[] = [
-    {
-      name: "Ness",
-      img: "https://storage.googleapis.com/smashpros.gg/characters/icons/ness.png",
-    },
-    {
-      name: "Aegis",
-      img: "https://storage.googleapis.com/smashpros.gg/characters/icons/homura.png"
-    }, {
-      name: "Mario",
-      img: "https://storage.googleapis.com/smashpros.gg/characters/icons/mario.png"
-    }
-  ]
+  selectCharacter(characterName: string){
+    this.selectedCharacter.emit(characterName);
+  }
 }

@@ -1,4 +1,4 @@
-.container{
+.container {
     position: absolute;
     width: 70%;
     height: 90%;
@@ -8,5 +8,83 @@
     padding: 18px;
     border: 3px solid;
     border-color: #E1E2EF;
+    background-color: #B497D6;
+}
+
+.title {
+    background-color: #B497D6;
+}
+
+.game-set-stats {
+    margin-top: 14% ;
+    background-color: #B497D6;
+    width: 45%;
+    height: 80%;
+    float: left;
+    border-radius: 6px;
+    padding: 6px;
+    border: 2px solid;
+    border-color: rgba(41, 41, 41, 0.7);
+    background-color: #B497D6;
+}
+
+.stages {
+    margin-top: 14% ;
+    background-color: #B497D6;
+    width: 45%;
+    height: 80%;
+    float: right;
+    border-radius: 6px;
+    padding: 6px;
+    border: 2px solid;
+    border-color: rgba(41, 41, 41, 0.7);
+    background-color: #B497D6;
+}
+
+.stats {
+    background-color: #B497D6;
+    margin: 12px;
+    padding: 8px;
+    border-radius: 6px;
+}
+
+.set-total {
+    background-color: #B497D6;
+    font-size: 20px;
+    padding: 4px;
+}
+
+.win-lose {
+    background-color: #B497D6;
+    font-size: 16px;
+    padding: 4px;
+}
+
+.wins {
+    background-color: #B497D6;
+    color: green;
+}
+
+.losses {
+    background-color: #B497D6;
+    color: red;
+}
+
+.bottom-three-stages {
+    background-color: #B497D6;
+    font-size: 18px;
+}
+
+.top-three-stages {
+    background-color: #B497D6;
+    font-size: 18px;
+}
+
+.stage {
+    background-color: #B497D6;
+    margin-bottom: 8px;
+}
+
+.stage-list {
     background-color: #B497D6;
 }

@@ -1,6 +1,6 @@
 <div class="container">
     @for (character of characters; track $index) {
-        <div class="character">
+        <div class="character" (click)="selectCharacter(character.name)">
             <img class="icon" [src]="character.img">
         </div>
     }

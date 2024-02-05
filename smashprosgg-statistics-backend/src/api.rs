@@ -21,7 +21,8 @@ pub async fn start_api(ip: String) {
         .route("/set_winrate/user", get(get_set_winrate_from_username))
         .route("/game_winrate", get(get_game_winrate))
         .route("/game_winrate/user", get(get_game_winrate_from_username))
-        .route("/map_winrate_overtime/user", get(get_map_winrate_overtime));
+        .route("/map_winrate_overtime/user", get(get_map_winrate_overtime))
+        .route("/get_all_games/user", get(get_all_games));
 
     let listener = tokio::net::TcpListener::bind(ip).await.unwrap();
     axum::serve(listener, app).await.unwrap();
@@ -30,6 +31,21 @@ pub async fn start_api(ip: String) {
 #[derive(Serialize, Deserialize, Debug)]
 struct ThisIsTemp {
     user_id: usize,
+}
+
+async fn get_all_games(username: Query<Username>) -> impl IntoResponse {
+    let headers = create_cors_headers();
+    let user_id = connection::get_user_id_from_username(username.0.username).await.unwrap();
+    let sets = connection::get_all_sets(user_id).await.unwrap();
+    let mut games: Vec<Game> = vec![];
+
+    for set in sets {
+        for game in set.games {
+            games.push(game);
+        }
+    }
+
+    (headers, Json((user_id, games)))
 }
 
 async fn get_set_winrate(user_id: Query<ThisIsTemp>) -> String {

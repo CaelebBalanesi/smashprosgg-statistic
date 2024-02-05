@@ -1,13 +1,34 @@
-<app-character-selecter></app-character-selecter>
+<!-- <app-character-selecter (selectedCharacter)="getData($event)" [characters]="characters"></app-character-selecter> -->
+
 <div class="container">
     <div class="game-set-stats">
-        <div class="set-stats">
-            <p>{{ setStats.total }} sets</p>
-            <div class="win-lose">{{ setStats.wins }} / {{ setStats.losses }}</div>
+        <h1 class="title">Sets {{ selectedCharacter }}</h1>
+        <div class="stats">
+            <p class="set-total">{{ setStats.total }} sets total <span class="win-lose"> <span class="wins">{{ setStats.wins }}</span> / <span class="losses">{{ setStats.losses }}</span></span></p>
         </div>
-        <div class="game-stats">
-            <p>{{ totalGames }} sets</p>
-            <div class="win-lose">{{ gameWins }} / {{ gameLosses }}</div>
+        <h1 class="title">Games</h1>
+        <div class="stats">
+            <p class="set-total">{{ gameStats.total }} games total <span class="win-lose"> <span class="wins">{{ gameStats.wins }}</span> / <span class="losses">{{ gameStats.losses }}</span></span></p>
+        </div>
+    </div>
+    
+    <div class="stages">
+        <h1 class="title">Stages</h1>
+        <h2 class="title">Top Three Stages</h2>
+        <div class="top-three-stages">
+            <ol class="stage-list">
+                @for (stage of stages.sort(compare).slice(-3).reverse(); track $index) {
+                    <li class="stage"> {{ stage.name | stageIdToName }}: {{ ( ( stage.wins / stage.total) * 100 ).toPrecision(4)}}% </li>
+                }
+            </ol>
+        </div>
+        <h2 class="title">Bottom Three Stages</h2>
+        <div class="bottom-three-stages">
+            <ol class="stage-list">
+                @for (stage of stages.sort(compare).slice(0, 3); track $index) {
+                    <li class="stage"> {{ stage.name | stageIdToName }}: {{ ( ( stage.wins / stage.total) * 100 ).toPrecision(4)}}% </li>
+                }
+            </ol>
         </div>
     </div>
 </div>
