@@ -10,31 +10,3 @@
     border-color: #E1E2EF;
     background-color: #B497D6;
 }
-
-.test {
-    background-color: #B497D6;
-}
-
-.button {
-    font-size: 24px;
-    color: white;
-    margin: 12px;
-    background-color: #02020A;
-    width: 120px;
-    height: 80px;
-    border: 3px solid;
-    border-color: #E1E2EF;
-    transition: border-color 0.2s;
-    transition: background-color 0.2s;
-    transition: color 0.2s;
-}
-
-.button:hover {
-    color: black;
-    background-color: #B497D6;
-    border-color: #B497D6;
-}
-
-.winrate {
-    background-color: #B497D6;
-}

@@ -1,11 +1,13 @@
+<app-character-selecter></app-character-selecter>
 <div class="container">
-    <p class="test">{{data}}</p>
-    <button class="button" (click)="get_winrate()">Get Winrate</button>
-    <button class="button" (click)="get_map_winrate()">Get Map Winrate</button>
-    <div class="winrate" [hidden]="flag">
-        <p>Game Winrate: {{ game_winrate }}</p>
+    <div class="game-set-stats">
+        <div class="set-stats">
+            <p>{{ setStats.total }} sets</p>
+            <div class="win-lose">{{ setStats.wins }} / {{ setStats.losses }}</div>
+        </div>
+        <div class="game-stats">
+            <p>{{ totalGames }} sets</p>
+            <div class="win-lose">{{ gameWins }} / {{ gameLosses }}</div>
+        </div>
     </div>
-    @if (options) {
-        <div echarts [options]="options" theme="macarons" class="demo-chart"></div>
-    }
 </div>
